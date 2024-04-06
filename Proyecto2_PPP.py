@@ -1,57 +1,75 @@
-import random
+'''
+    En este programa se van a calcular la probabilidades de los dadas y las funciones de masa de probabilidad
 
-def lanzar_dado(probabilidad=0.16):
-    numero = random.random()  # Genera un número aleatorio entre 0 y 1
-    if numero < probabilidad:
-        # La probabilidad de que caiga un número es probabilidad
-        # Simulamos 6 caras del dado
-        return random.randint(1, 6)
-    else:
-        # La probabilidad de que no caiga un número es (1 - probabilidad)
-        # En este caso, devolvemos None para indicar un lanzamiento no válido
-        return
 
-def lanzar_dos_dados():
-    dado1 = lanzar_dado()
-    dado2 = lanzar_dado()
-    # Verificar si alguno de los dados es None (es decir, no válido)
-    if dado1 is None or dado2 is None:
-        # Si uno de los dados es None, volvemos a lanzar ambos dados
-        return lanzar_dos_dados()
-    else:
-        # Si ambos dados son válidos, devolvemos los resultados
-        return dado1, dado2
-    
-def lanzar_dado_trucado(probabilidades_trucadas):
-    numero = random.random()  # Genera un número aleatorio entre 0 y 1
-    acumulado = 0
-    for i, probabilidad in enumerate(probabilidades_trucadas):
-        acumulado += probabilidad
-        if numero < acumulado:
-            return i + 1  # Sumamos 1 porque los índices comienzan desde 0
-    return
+'''
+import math
+import numpy as np
+from matplotlib import pyplot as plt
 
-def lanzar_dos_dados_trucados(probabilidades_dado1_trucado, probabilidades_dado2_trucado):
-    dado1 = lanzar_dado_trucado(probabilidades_dado1_trucado)
-    dado2 = lanzar_dado_trucado(probabilidades_dado2_trucado)
-    return dado1, dado2
+'''
+    Primero graficamos la probabilidad de cada dado de forma individula
+'''
 
-def main():
-    probabilidades_dado1_trucado = [0.06, 0.06, 0.7, 0.06, 0.06, 0.06]  # Probabilidades modificadas para el primer dado
-    probabilidades_dado2_trucado = [0.06, 0.06, 0.06, 0.7, 0.06, 0.06]  # Probabilidades modificadas para el segundo dado
+Cara_Dado=[1,2,3,4,5,6]
 
-    print("Dados normales")
-    for i in range(10):  # Repetir el proceso 10 veces
-        dado1, dado2 = lanzar_dos_dados()
-        suma = dado1 + dado2
-        print(f"Tirada {i+1}: |Dado 1 = {dado1}| |Dado 2 = {dado2}| |Suma = {suma}|")
+#Probabilidades del dado 1
+probabilidad_Dado1=[1/6,1/6,1/6,1/6,1/6,1/6]
+#Probabilidades del dado 2
+probabilidad_Dado2=[1/6,1/6,1/6,1/6,1/6,1/6]
 
-    print('')
-    print("Tirada de dados trucados")
-    for i in range(10):  # Repetir el proceso 10 veces
-        dado1_trucado, dado2_trucado = lanzar_dos_dados_trucados(probabilidades_dado1_trucado, probabilidades_dado2_trucado)
-        suma_trucada = dado1_trucado + dado2_trucado
-        print(f"Tirada {i+1}: |Dado 1 = {dado1_trucado}| |Dado 2 = {dado2_trucado}| |Suma = {suma_trucada}|")
+#Probabilidades del dado trucado 1
+probabilidad_DadoTrucado1=[0.06,0.06,0.7,0.06,0.06,0.06]
+#Probabilidades del dado trucado 2
+probabilidad_DadoTrucado2=[0.06,0.06,0.06,0.7,0.06,0.06]
 
-if __name__ == "__main__":
-    main()
+#Dado 1
+plt.figure()
+plt.plot(Cara_Dado,probabilidad_Dado1, 'bo')
+plt.title('Dado ideal 1')
+plt.xlabel('Caras de dado')
+plt.ylabel('Probabilidad')
+plt.yticks([1/6,1/6,1/6,1/6,1/6,1/6],['1/6','1/6','1/6','1/6','1/6','1/6'])
+#Dado 2
+plt.figure()
+plt.plot(Cara_Dado,probabilidad_Dado2, 'bo')
+plt.title('Dado ideal 2')
+plt.xlabel('Caras de dado')
+plt.ylabel('Probabilidad')
+plt.yticks([1/6,1/6,1/6,1/6,1/6,1/6],['1/6','1/6','1/6','1/6','1/6','1/6'])
+
+#Dado trucado 1
+plt.figure()
+plt.plot(Cara_Dado,probabilidad_DadoTrucado1, 'bo')
+plt.title('Dado trucado 1')
+plt.xlabel('Caras de dado')
+plt.ylabel('Probabilidad')
+plt.yticks([0.06,0.06,0.7,0.06,0.06,0.06],['0.06','0.06','0.7','0.06','0.06','0.06'])
+#Dado trucado 2
+plt.figure()
+plt.plot(Cara_Dado,probabilidad_DadoTrucado2, 'bo')
+plt.title('Dado trucado 2')
+plt.xlabel('Caras de dado')
+plt.ylabel('Probabilidad')
+plt.yticks([0.06,0.06,0.06,0.7,0.06,0.06],['0.06','0.06','0.06','0.7','0.06','0.06'])
+
+'''
+    Ahora graficamos las resultados posibles tirando los dos dados y dadas las probabilidades
+    en este caso hay que anailisar todos los posibles resultados que se pueden obtener con dos
+    dados ideales y dos dados trucados
+'''
+
+Resultados_Posibles[2,3,4,5,6,7,8,9,10,11,12]
+
+'''
+    conosiendo los resultados posibles tenemos que calcular la probablidad de cada uno dadas las probabilidades
+    de los dos dados ideales y los dos dados trucados
+'''
+Probabilidades_Ideales[]
+probabilidades_trucadas[]
+
+
+
+
+plt.show()
+
