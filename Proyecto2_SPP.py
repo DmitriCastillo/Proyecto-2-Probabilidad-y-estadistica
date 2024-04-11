@@ -59,7 +59,7 @@ plt.stem(Cara_Dado,probabilidad_DadoTrucado2, 'bo',basefmt=' ')
 plt.title('Dado trucado 2')
 plt.xlabel('Caras del dado')
 plt.ylabel('Probabilidad')
-plt.yticks([0,0.06,0.7,1],['0','0.06','0.7','0'])
+plt.yticks([0,0.06,0.7,1],['0','0.06','0.7','1'])
 
 '''
 
@@ -149,6 +149,17 @@ plt.xlabel('Suma de los dados')
 plt.ylabel('Probabilidad')
 plt.yticks([0, 0.0036, 0.0072, 0.0492, 0.0912, 0.0948, 0.508,  0.0948, 0.0912, 0.0492, 0.0072, 0.0036, 1],['0','0.0036','0.0072','0.0492','0.0912','0.0948','0.508','0.0036','0.0072','0.0492','0.0912','0.0948','1'])
 plt.xticks([2,3,4,5,6,7,8,9,10,11,12])
+
+probas_binegativa=[0.1311,0.1935,0.1904,0.1561,0.1152,0.07937,0.05206,0.03293]
+x_binegativa=[3,4,5,6,7,8,9,10]
+#Grafica de la funcion de masa de probabilidad para x natural y 3<x<11
+plt.figure()
+plt.stem(x_binegativa,probas_binegativa, 'bo', basefmt=' ')
+plt.title('Probabilidad de obtener tres 7')
+plt.xlabel('Cantidad de ensayos')
+plt.ylabel('Probabilidad')
+plt.yticks(probas_binegativa)
+plt.xticks(x_binegativa)
 
 #Mostramos las graficas
 plt.show()
