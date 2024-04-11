@@ -1,3 +1,8 @@
+# Proyecto #2
+# Creado por: Felipe Sánchez Segura 2023083272 
+#             Axel Dimitri Castillo Collao 2023154988 
+#             Yair González Núñez 2023048047 
+
 '''
 
 
@@ -25,34 +30,6 @@ probabilidad_Dado2=[1/6,1/6,1/6,1/6,1/6,1/6]
 probabilidad_DadoTrucado1=[0.06,0.06,0.7,0.06,0.06,0.06]
 #Probabilidades del dado trucado 2
 probabilidad_DadoTrucado2=[0.06,0.06,0.06,0.7,0.06,0.06]
-
-# Tabla para la fmp
-def tabularFuncion(px,pfx):
-	"""
-	Definición: Función que tabula listas en forma de tabla.
-	Parámetros: px = lista de valores posibles de v.a.d
-				pfx = lista de valores de función masa de probabilidad
-				      para la v.a.d
-	"""
-	if len(px) != len(pfx):
-		raise ValueError("Las listas x y f(X) deben tener el mismo tamaño")
-	#impresión de encabezado	
-	print("x\tf(x)")
-	print("-"*12)
-	for i in range(len(px)):
-		print(f"{px[i]}\t{pfx[i]}")
-		print(" ")
-
-#Dados ideales
-print("fmp dado ideal 1")
-tabularFuncion(Cara_Dado,probabilidad_Dado1)
-print("fmp dado ideal 2")
-tabularFuncion(Cara_Dado,probabilidad_Dado2)
-#Dados trucados
-print("fmp dado trucado 1")
-tabularFuncion(Cara_Dado,probabilidad_DadoTrucado1)
-print("fmp dado trucado 2")
-tabularFuncion(Cara_Dado,probabilidad_DadoTrucado2)
 
 #Dado 1
 plt.figure()
@@ -95,6 +72,7 @@ plt.yticks([0,0.06,0.7,1],['0','0.06','0.7','0'])
 Resultados_Posibles=[2,3,4,5,6,7,8,9,10,11,12]
 
 '''
+
     conociendo los resultados posibles tenemos que calcular la probablidad de cada uno dadas las probabilidades
     de los dos dados ideales y los dos dados trucados
     Entonces
@@ -111,12 +89,48 @@ Resultados_Posibles=[2,3,4,5,6,7,8,9,10,11,12]
     11 tenemos 5:6, 6:5, dos formos
     12 tenemos 6:6 una forma
 
-    Lo que nos da un total de 36 diferentes posibilidades 
+    Lo que nos da un total de 36 diferentes posibilidades
+
+    "Saque cada probabilidad a mano"
+    la suma no da uno 
+    
 '''
 
 Probabilidades_Ideales=[1/36,1/18,1/12,1/9,5/36,1/6,5/36,1/9,1/12,1/18,1/36]
 
 Probabilidades_Trucadas=np.convolve(probabilidad_DadoTrucado1,probabilidad_DadoTrucado2)
+
+# Tabla para la fmp
+def tabularFuncion(px,pfx):
+	"""
+	Definición: Función que tabula listas en forma de tabla.
+	Parámetros: px = lista de valores posibles de v.a.d
+				pfx = lista de valores de función masa de probabilidad
+				      para la v.a.d
+	"""
+	if len(px) != len(pfx):
+		raise ValueError("Las listas x y f(X) deben tener el mismo tamaño")
+	#impresión de encabezado	
+	print("x\tf(x)")
+	print("-"*12)
+	for i in range(len(px)):
+		print(f"{px[i]}\t{pfx[i]}")
+		print(" ")
+
+#Dados ideales
+print("fmp dado ideal 1")
+tabularFuncion(Cara_Dado,probabilidad_Dado1)
+print("fmp dado ideal 2")
+tabularFuncion(Cara_Dado,probabilidad_Dado2)
+print("fmp suma ambos dados ideales")
+tabularFuncion(Resultados_Posibles,Probabilidades_Ideales)
+#Dados trucados
+print("fmp dado trucado 1")
+tabularFuncion(Cara_Dado,probabilidad_DadoTrucado1)
+print("fmp dado trucado 2")
+tabularFuncion(Cara_Dado,probabilidad_DadoTrucado2)
+print("fmd suma de dados trucados")
+tabularFuncion(Resultados_Posibles,Probabilidades_Trucadas)
 
 #Grafica de probabilidad de los dados ideales
 plt.figure()
