@@ -87,12 +87,13 @@ Resultados_Posibles=[2,3,4,5,6,7,8,9,10,11,12]
     Lo que nos da un total de 36 diferentes posibilidades
 
     "Saque cada probabilidad a mano"
+    la suma no da uno 
     
 '''
 
 Probabilidades_Ideales=[1/36,1/18,1/12,1/9,5/36,1/6,5/36,1/9,1/12,1/18,1/36]
 
-Probabilidades_Trucadas=[9/2500,9/1250,219/2500,21/125,1453/2500,1243/1250,1453/2500,21/125,219/2500,9/1250,9/2500]
+Probabilidades_Trucadas=np.convolve(probabilidad_DadoTrucado1,probabilidad_DadoTrucado2)
 
 #Grafica de probabilidad de los dados ideales
 plt.figure()
@@ -109,8 +110,9 @@ plt.stem(Resultados_Posibles,Probabilidades_Trucadas, 'bo', basefmt=' ')
 plt.title('Dados Trucados')
 plt.xlabel('Suma de los dados')
 plt.ylabel('Probabilidad')
-plt.yticks([0,9/2500,9/1250,219/2500,21/125,1453/2500,1243/1250,1453/2500,21/125,219/2500,9/1250,9/2500,1],['0','9/2500','9/1250','219/2500','21/125','1453/2500','1243/1250','1453/2500','21/125','219/2500','9/1250','9/2500','1'])
+plt.yticks([0, 0.0036, 0.0072, 0.0492, 0.0912, 0.0948, 0.508,  0.0948, 0.0912, 0.0492, 0.0072, 0.0036, 1],['0','0.0036','0.0072','0.0492','0.0912','0.0948','0.508','0.0036','0.0072','0.0492','0.0912','0.0948','1'])
 plt.xticks([2,3,4,5,6,7,8,9,10,11,12])
 
 #Mostramos las graficas
 plt.show()
+
