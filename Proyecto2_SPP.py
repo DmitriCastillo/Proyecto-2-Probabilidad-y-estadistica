@@ -34,32 +34,34 @@ probabilidad_DadoTrucado2=[0.06,0.06,0.06,0.7,0.06,0.06]
 #Dado 1
 plt.figure()
 plt.stem(Cara_Dado,probabilidad_Dado1, 'bo', basefmt=' ')
-plt.title('Dado ideal 1')
-plt.xlabel('Caras del dado')
-plt.ylabel('Probabilidad')
-plt.yticks([0,1/6,1],['0','1/6','1'])
+plt.title('Dado ideal 1 y 2')
+plt.xlabel('Caras del dado (x)')
+plt.xticks(Cara_Dado)
+plt.ylabel('Probabilidad  f(x)')
+plt.yticks([0,1/6,1/4],['0','1/6',''])
+
 #Dado 2
 plt.figure()
 plt.stem(Cara_Dado,probabilidad_Dado2, 'bo', basefmt=' ')
 plt.title('Dado ideal 2')
 plt.xlabel('Caras del dado')
 plt.ylabel('Probabilidad')
-plt.yticks([0,1/6,1],['0','1/6','1'])
+plt.yticks([0,1/6,1/4],['0','1/6',''])
 
 #Dado trucado 1
 plt.figure()
 plt.stem(Cara_Dado,probabilidad_DadoTrucado1, 'bo', basefmt=' ')
 plt.title('Dado trucado 1')
-plt.xlabel('Caras del dado')
-plt.ylabel('Probabilidad')
-plt.yticks([0,0.06,0.7,1],['0','0.06','0.7','1'])
+plt.xlabel('Caras del dado (x)')
+plt.ylabel('Probabilidad f(x)')
+plt.yticks([0,0.06,0.7,0.8],['0','0.06','0.7',''])
 #Dado trucado 2
 plt.figure()
 plt.stem(Cara_Dado,probabilidad_DadoTrucado2, 'bo',basefmt=' ')
 plt.title('Dado trucado 2')
-plt.xlabel('Caras del dado')
-plt.ylabel('Probabilidad')
-plt.yticks([0,0.06,0.7,1],['0','0.06','0.7','1'])
+plt.xlabel('Caras del dado  (x)')
+plt.ylabel('Probabilidad  f(x)')
+plt.yticks([0,0.06,0.7,0.8],['0','0.06','0.7',''])
 
 '''
 
@@ -173,16 +175,16 @@ plt.stem(Resultados_Posibles,Probabilidades_Ideales, 'bo', basefmt=' ')
 plt.title('Dados Ideales')
 plt.xlabel('Suma de los dados')
 plt.ylabel('Probabilidad')
-plt.yticks([0,1/36,1/18,1/12,1/9,5/36,1/6,5/36,1/9,1/12,1/18,1/36,1],['0','1/36','1/18','1/12','1/9','5/36','1/6','5/36','1/9','1/12','1/18','1/36','1'])
+plt.yticks([0,1/36,1/18,1/12,1/9,5/36,1/6,5/36,1/9,1/12,1/18,1/36],['0','1/36','1/18','1/12','1/9','5/36','1/6','5/36','1/9','1/12','1/18','1/36'])
 plt.xticks([2,3,4,5,6,7,8,9,10,11,12])
 
 #Grafica de probabilidad de los dados trucados
 plt.figure()
 plt.stem(Resultados_Posibles,Probabilidades_Trucadas, 'bo', basefmt=' ')
 plt.title('Dados Trucados')
-plt.xlabel('Suma de los dados')
-plt.ylabel('Probabilidad')
-plt.yticks([0, 0.0036, 0.0072, 0.0492, 0.0912, 0.0948, 0.508,  0.0948, 0.0912, 0.0492, 0.0072, 0.0036, 1],['0','0.0036','0.0072','0.0492','0.0912','0.0948','0.508','0.0036','0.0072','0.0492','0.0912','0.0948','1'])
+plt.xlabel('Suma de los dados (x)')
+plt.ylabel('Probabilidad f(x)')
+plt.yticks([0, 0.0036, 0.0072, 0.0492, 0.0912, 0.0948, 0.508,  0.0948, 0.0912, 0.0492, 0.0072, 0.0036],['0','0.0036','0.0072','0.0492','0.0912','0.0948','0.508','0.0036','0.0072','0.0492','0.0912','0.0948'])
 plt.xticks([2,3,4,5,6,7,8,9,10,11,12])
 
 probas_binegativa=[0.1311,0.1935,0.1904,0.1561,0.1152,0.07937,0.05206,0.03293]
@@ -194,17 +196,17 @@ Probas_Para3_7_Ideal=[0.00463, 0.01157, 0.0193, 0.0268, 0.0335, 0.039, 0.0434, 0
 plt.figure()
 plt.stem(x_binegativa,Probas_Para3_7_Ideal, 'bo', basefmt=' ')
 plt.title('Probabilidad de obtener tres 7 con dados ideales')
-plt.xlabel('Cantidad de ensayos')
-plt.ylabel('Probabilidad')
+plt.xlabel('Cantidad de ensayos (x)')
+plt.ylabel('Probabilidad f(x)')
 plt.yticks(Probas_Para3_7_Ideal)
 plt.xticks(x_binegativa)
 
 #Grafica de la funcion de masa de probabilidad para x natural y 3<x<11 con los dados trucados
 plt.figure()
 plt.stem(x_binegativa,probas_binegativa, 'bo', basefmt=' ')
-plt.title('Probabilidad de obtener tres 7')
-plt.xlabel('Cantidad de ensayos')
-plt.ylabel('Probabilidad')
+plt.title('Probabilidad de obtener tres 7 con dados trucados')
+plt.xlabel('Cantidad de ensayos (x)')
+plt.ylabel('Probabilidad f(x)')
 plt.yticks(probas_binegativa)
 plt.xticks(x_binegativa)
 
