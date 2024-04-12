@@ -152,7 +152,19 @@ plt.xticks([2,3,4,5,6,7,8,9,10,11,12])
 
 probas_binegativa=[0.1311,0.1935,0.1904,0.1561,0.1152,0.07937,0.05206,0.03293]
 x_binegativa=[3,4,5,6,7,8,9,10]
-#Grafica de la funcion de masa de probabilidad para x natural y 3<x<11
+
+Probas_Para3_7_Ideal=[0.00463, 0.01157, 0.0193, 0.0268, 0.0335, 0.039, 0.0434, 0.0465]
+
+#Grafica de la funcion de masa de probabilidad para x natural y 3<x<11 con los dados ideales 
+plt.figure()
+plt.stem(x_binegativa,Probas_Para3_7_Ideal, 'bo', basefmt=' ')
+plt.title('Probabilidad de obtener tres 7 con dados ideales')
+plt.xlabel('Cantidad de ensayos')
+plt.ylabel('Probabilidad')
+plt.yticks(Probas_Para3_7_Ideal)
+plt.xticks(x_binegativa)
+
+#Grafica de la funcion de masa de probabilidad para x natural y 3<x<11 con los dados trucados
 plt.figure()
 plt.stem(x_binegativa,probas_binegativa, 'bo', basefmt=' ')
 plt.title('Probabilidad de obtener tres 7')
