@@ -130,7 +130,7 @@ print('Mediana: ', Mediana_truco)
 
 ''' Varianza'''
 for i in range(len(Resultados_Posibles)):
-        suma[i] = (Resultados_Posibles[i]-Mediana_truco)*Probabilidades_Trucadas[i]
+        suma[i] = (Resultados_Posibles[i]-Mediana_truco)**2*Probabilidades_Trucadas[i]
 
 Varianza_truco=np.sum(suma)
 
