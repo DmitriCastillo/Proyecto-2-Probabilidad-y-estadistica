@@ -100,6 +100,41 @@ Probabilidades_Ideales=[1/36,1/18,1/12,1/9,5/36,1/6,5/36,1/9,1/12,1/18,1/36]
 
 Probabilidades_Trucadas=np.convolve(probabilidad_DadoTrucado1,probabilidad_DadoTrucado2)
 
+''' Calculo de mediana y desviacion '''
+''' Dados ideales '''
+''' Media E(x) '''
+suma = [0,0,0,0,0,0,0,0,0,0,0]
+for i in range(len(Resultados_Posibles)):
+        suma[i] = Resultados_Posibles[i]*Probabilidades_Ideales[i]
+Mediana_ideal=round(np.sum(suma))
+print('Mediana: ', Mediana_ideal)
+
+'''Varianza'''
+for i in range(len(Resultados_Posibles)):
+        suma[i] = (Resultados_Posibles[i]-Mediana_ideal)*Probabilidades_Ideales[i]
+
+Varianza_ideal=np.sum(suma)
+
+''' Desviacion '''
+Desviacion_ideal= np.sqrt(Varianza_ideal)
+print('Desviacion_ideal', Desviacion_ideal)
+
+''' Dados Trucados '''
+''' Media E(x) '''
+for i in range(len(Resultados_Posibles)):
+        suma[i] = Resultados_Posibles[i]*Probabilidades_Trucadas[i]
+Mediana_truco=round(np.sum(suma))
+print('Mediana: ', Mediana_truco)
+
+''' Varianza'''
+for i in range(len(Resultados_Posibles)):
+        suma[i] = (Resultados_Posibles[i]-Mediana_truco)*Probabilidades_Trucadas[i]
+
+Varianza_truco=np.sum(suma)
+
+''' Desviacion '''
+Desviacion_truco= np.sqrt(Varianza_truco)
+print('Desviacion_truco', Desviacion_truco)
 # Tabla para la fmp
 def tabularFuncion(px,pfx):
 	"""
